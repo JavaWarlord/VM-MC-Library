@@ -1,5 +1,7 @@
 package com.valiantmarauders.minecraft.block;
 
+import java.util.List;
+
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
@@ -37,4 +39,16 @@ public interface BlockChangeDatabase {
 	 * Restore all changed Blocks to their original Material.
 	 */
 	public void restoreAll();
+
+	/**
+	 * Loads a List of changed Blocks from a file
+	 * 
+	 * @return
+	 */
+	List<Block> load();
+
+	/**
+	 * Saves the changed Blocks to a file
+	 */
+	void save();
 }
