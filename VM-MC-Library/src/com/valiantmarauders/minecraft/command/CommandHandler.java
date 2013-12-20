@@ -51,8 +51,7 @@ public class CommandHandler implements CommandExecutor {
 			// be? For this example, we are going to call it /example.
 			// This means that all commands will have the base of /example.
 			if (args.length == 0) {
-				getExecutor("example").onCommand(sender, cmd, commandLabel,
-						args);
+				sender.sendMessage("/nospawn [command] {args}");
 				return true;
 			}
 
