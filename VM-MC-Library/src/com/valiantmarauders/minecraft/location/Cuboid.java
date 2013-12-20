@@ -170,4 +170,14 @@ public class Cuboid {
 		y2 = location.getBlockY();
 		z2 = location.getBlockZ();
 	}
+
+	public Location getLocation1() {
+		// TODO Auto-generated method stub
+		return new Location(world, x1, y1, z1);
+	}
+
+	public Location getLocation2() {
+		// TODO Auto-generated method stub
+		return new Location(world, x2, y2, z2);
+	}
 }
