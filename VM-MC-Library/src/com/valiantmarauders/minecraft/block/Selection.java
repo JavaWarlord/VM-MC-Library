@@ -20,8 +20,6 @@ public interface Selection {
 	 */
 	public List<Location> getPoints();
 
-	public boolean contains(Location location);
-
 	/**
 	 * Adds a {@link org.bukkit.Location Location} to the list of boundary
 	 * points.
