@@ -1,9 +1,8 @@
-package com.valiantmarauders.minecraft.block;
+package com.valiantmarauders.minecraft.selection;
 
 import java.util.List;
 
 import org.bukkit.Location;
-import org.bukkit.World;
 
 /**
  * Represents an area in a single {@link org.bukkit.World World} bounded by
@@ -13,6 +12,7 @@ import org.bukkit.World;
  * 
  */
 public interface Selection {
+
 	/**
 	 * Get a list of all the boundary {@link org.bukkit.Location Locations}.
 	 * 
@@ -37,8 +37,4 @@ public interface Selection {
 	 *            the location
 	 */
 	public boolean remove(Location location);
-
-	public void setWorld(World world);
-
-	public World getWorld();
 }
