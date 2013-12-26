@@ -5,6 +5,8 @@ import java.util.List;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 
+import com.valiantmarauders.minecraft.block.Cuboid;
+
 public interface CuboidManager {
 	/**
 	 * Displays all of the Cuboids.
