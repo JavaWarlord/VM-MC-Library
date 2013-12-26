@@ -1,54 +1,66 @@
 package com.valiantmarauders.minecraft.block;
 
 import java.util.List;
+import java.util.Map;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
 public interface BlockChangeDatabase {
 	/**
-	 * Stores the original type of Block and then changes the Material of the
-	 * Block to the given type.
+	 * Stores the type of {@link Block} at the given {@link Location} and the
+	 * changes the Block in the world to given {@link Material}.
 	 * 
-	 * @param block
-	 *            the Block to change
+	 * @param location
+	 *            the location of the block to change
 	 * @param material
-	 *            the Material to change the Block to
+	 *            the new block
 	 */
-	public void change(Block block, Material material);
+	public void change(Location location, Material material);
 
 	/**
-	 * Restores the Block to it's original Material and removes the stored
-	 * entry.
+	 * Checks to see if the {@link Block} at the given {@link Location} is
+	 * changed.
 	 * 
-	 * @param block
-	 *            the Block to restore
-	 */
-	public void restore(Block block);
-
-	/**
-	 * Checks to see if the given Block is changed.
-	 * 
-	 * @param block
+	 * @param location
 	 *            the Block to check
 	 * @return true if the Block is changed
 	 */
-	public boolean isChanged(Block block);
+	public boolean isChanged(Location location);
 
 	/**
-	 * Restore all changed Blocks to their original Material.
-	 */
-	public void restoreAll();
-
-	/**
-	 * Loads a List of changed Blocks from a file
+	 * Loads a Map of changed Block locations from a file
 	 * 
 	 * @return
 	 */
-	List<Block> load();
+	Map<Location, Material> load();
 
 	/**
 	 * Saves the changed Blocks to a file
 	 */
 	void save();
+
+	/**
+	 * Restores the {@link Block} at this {@link Location} is changed. to it's
+	 * original {@link Material} and removes the stored entry.
+	 * 
+	 * @param location
+	 *            the Location of the Block to restore
+	 */
+	public void restore(Location location);
+
+	/**
+	 * Restores a list of {@link Block} {@link Location Locations} to their
+	 * original {@link Material} and removes the stored entry.
+	 * 
+	 * @param guides
+	 *            the List of the Locations of the Blocks to restore
+	 */
+	public void restore(List<Location> guides);
+
+	/**
+	 * Restore all changed Blocks to their original Material.
+	 */
+	public void restoreAll();
 }
