@@ -9,7 +9,7 @@ import org.bukkit.block.Block;
 
 public interface BlockChangeDatabase {
 	/**
-	 * Stores the type of {@link Block} at the given {@link Location} and the
+	 * Stores the type of {@link Block} at the given {@link Location} and then
 	 * changes the Block in the world to given {@link Material}.
 	 * 
 	 * @param location
@@ -17,32 +17,34 @@ public interface BlockChangeDatabase {
 	 * @param material
 	 *            the new block
 	 */
-	public void change(Location location, Material material);
+	public void add(Location location, Material type);
 
 	/**
-	 * Checks to see if the {@link Block} at the given {@link Location} is
-	 * changed.
+	 * Checks to see if there is an entry for that {@link Location} in the
+	 * database.
 	 * 
 	 * @param location
-	 *            the Block to check
+	 *            the location to check
 	 * @return true if the Block is changed
 	 */
-	public boolean isChanged(Location location);
+	public boolean exists(Location location);
 
 	/**
-	 * Loads a Map of changed Block locations from a file
+	 * Loads a saved {@link Map} of changed {@link Location Locations} and
+	 * {@link Material Materials}.
 	 * 
-	 * @return
+	 * @return the map
 	 */
 	Map<Location, Material> load();
 
 	/**
-	 * Saves the changed Blocks to a file
+	 * Saves a {@link Map} of changed {@link Location Locations} and
+	 * {@link Material Materials}.
 	 */
-	void save();
+	public boolean save();
 
 	/**
-	 * Restores the {@link Block} at this {@link Location} is changed. to it's
+	 * Restores the changed {@link Block} at this {@link Location} to it's
 	 * original {@link Material} and removes the stored entry.
 	 * 
 	 * @param location
@@ -51,16 +53,18 @@ public interface BlockChangeDatabase {
 	public void restore(Location location);
 
 	/**
-	 * Restores a list of {@link Block} {@link Location Locations} to their
-	 * original {@link Material} and removes the stored entry.
+	 * Restores the changed {@link Block Blocks} at these {@link Location
+	 * Locations} to their original {@link Material} and removes the stored
+	 * entries.
 	 * 
-	 * @param guides
-	 *            the List of the Locations of the Blocks to restore
+	 * @param locations
+	 *            the list of the locations of the blocks to restore
 	 */
-	public void restore(List<Location> guides);
+	public void restore(List<Location> locations);
 
 	/**
-	 * Restore all changed Blocks to their original Material.
+	 * Restore all changed {@link Block Blocks} to their original
+	 * {@link Material}.
 	 */
 	public void restoreAll();
 }
