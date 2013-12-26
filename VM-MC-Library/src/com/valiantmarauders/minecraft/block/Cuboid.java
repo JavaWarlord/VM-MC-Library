@@ -15,7 +15,7 @@ import org.bukkit.World;
  * @version 0.1
  * 
  */
-public class Cuboid implements Selection {
+public class Cuboid {
 
 	private static final int MAX_POINTS = 2;
 	// @Deprecated
@@ -117,13 +117,11 @@ public class Cuboid implements Selection {
 		return sb.toString();
 	}
 
-	@Override
 	public List<Location> getPoints() {
 		// TODO Auto-generated method stub
 		return bounderies;
 	}
 
-	@Override
 	public boolean add(Location location) {
 		// TODO Auto-generated method stub
 		boolean result = bounderies.add(location);
@@ -132,19 +130,16 @@ public class Cuboid implements Selection {
 		return result;
 	}
 
-	@Override
 	public boolean remove(Location location) {
 		// TODO Auto-generated method stub
 		return bounderies.remove(location);
 	}
 
-	@Override
 	public void setWorld(World world) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public World getWorld() {
 		// TODO Auto-generated method stub
 		if (!bounderies.isEmpty())
