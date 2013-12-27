@@ -107,7 +107,8 @@ public class FlatFileBlockChangeDatabase implements BlockChangeDatabase {
 	@Override
 	public void restore(Location location) {
 		// TODO Auto-generated method stub
-		location.getBlock().setType(blocks.remove(location));
+		if (blocks.containsKey(location))
+			location.getBlock().setType(blocks.remove(location));
 	}
 
 	@Override
