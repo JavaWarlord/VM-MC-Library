@@ -86,19 +86,19 @@ public class Cuboid {
 		return new Cuboid(bounderies);
 	}
 
-	public String toSaveFormat() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(bounderies.get(0).getWorld().getName());
-		sb.append(",");
-		for (Location loc : bounderies) {
-			sb.append(loc.getX());
-			sb.append(",");
-			sb.append(loc.getY());
-			sb.append(",");
-			sb.append(loc.getZ());
-		}
-		return sb.toString();
-	}
+//	public String toSaveFormat() {
+//		StringBuilder sb = new StringBuilder();
+//		sb.append(bounderies.get(0).getWorld().getName());
+//		sb.append(",");
+//		for (Location loc : bounderies) {
+//			sb.append(loc.getX());
+//			sb.append(",");
+//			sb.append(loc.getY());
+//			sb.append(",");
+//			sb.append(loc.getZ());
+//		}
+//		return sb.toString();
+//	}
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
