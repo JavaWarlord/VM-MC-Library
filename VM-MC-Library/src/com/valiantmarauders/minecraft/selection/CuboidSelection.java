@@ -30,8 +30,7 @@ public class CuboidSelection implements Selection {
 	@Override
 	public boolean add(Location location) {
 		// TODO Auto-generated method stub
-		if (!points.contains(location))
-			points.add(location);
+		points.add(location);
 		if (points.size() > MAXPOINTS)
 			points.remove(0);
 		return true;
