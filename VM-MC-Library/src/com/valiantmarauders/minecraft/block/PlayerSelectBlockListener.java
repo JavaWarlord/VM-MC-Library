@@ -15,7 +15,7 @@ public class PlayerSelectBlockListener implements Listener {
 
 	public PlayerSelectBlockListener(JavaPlugin plugin, SelectionManager sm) {
 		// TODO Auto-generated constructor stub
-		this.plugin = plugin;
+		this.setPlugin(plugin);
 		this.sm = sm;
 	}
 
@@ -23,5 +23,13 @@ public class PlayerSelectBlockListener implements Listener {
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		Block block = event.getClickedBlock();
 		sm.addPoint(event.getPlayer(), event.getItem(), block);
+	}
+
+	public JavaPlugin getPlugin() {
+		return plugin;
+	}
+
+	public void setPlugin(JavaPlugin plugin) {
+		this.plugin = plugin;
 	}
 }
