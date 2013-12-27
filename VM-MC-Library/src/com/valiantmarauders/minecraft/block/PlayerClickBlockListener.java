@@ -8,8 +8,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.valiantmarauders.minecraft.selection.SelectionManager;
-
 /**
  * This class listens for a {@link Player} to click on a {@link Block} and
  * updates a {@link SelectionManager}
@@ -28,14 +26,13 @@ public class PlayerClickBlockListener implements Listener {
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.LOW)
 	public void onPlayerInteract(PlayerInteractEvent event) {
-		Player player = event.getPlayer();
 		Material material = null;
-		Block block = event.getClickedBlock();
 		// Check to see if the player has something in his hands
 		if (event.getItem() != null) {
 			material = event.getItem().getType();
 			if (handler != null) {
-				handler.notify(player, material, block);
+				handler.notify(event.getPlayer(), event.getAction(), material,
+						event.getClickedBlock());
 			}
 		}
 	}
