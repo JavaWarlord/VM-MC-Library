@@ -84,13 +84,6 @@ public class CuboidSelectionManager implements SelectionManager {
 		}
 	}
 
-	/*
-	 * private void updateDisplay(Selection selection) { // TODO Auto-generated
-	 * method stub removeGuides(player); setGuides(player, selection);
-	 * List<Location> points = selection.getPoints(); for (Location p : points)
-	 * { } }
-	 */
-
 	private List<Block> calculateGuides(Selection selection) {
 		// TODO Auto-generated method stub
 		World world = selection.getPoints().get(0).getWorld();
@@ -143,8 +136,8 @@ public class CuboidSelectionManager implements SelectionManager {
 	}
 
 	@Override
-	public List<Location> getSelection(Player player) {
+	public Selection getSelection(Player player) {
 		// TODO Auto-generated method stub
-		return null;
+		return selections.get(player);
 	}
 }

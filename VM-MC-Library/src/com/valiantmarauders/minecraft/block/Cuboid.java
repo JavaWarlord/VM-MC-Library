@@ -6,6 +6,8 @@ import java.util.List;
 import org.bukkit.Location;
 import org.bukkit.World;
 
+import com.valiantmarauders.minecraft.selection.Selection;
+
 /**
  * Defines the boundaries of a cube using points in opposite corners. In
  * geometry, a cuboid is a convex polyhedron bounded by six quadrilateral faces,
