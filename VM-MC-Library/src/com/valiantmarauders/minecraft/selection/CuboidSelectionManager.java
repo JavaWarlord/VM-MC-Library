@@ -20,12 +20,12 @@ public class CuboidSelectionManager implements SelectionManager {
 
 	private static final int GUIDEGAP = 3;
 	private Map<Player, Selection> selections;
-	private Material selectionWand;
+	private ItemStack selectionWand;
 	private BlockChangeDatabase blockDB;
 	private Material guideMaterial = Material.WOOL;
 	private JavaPlugin plugin;
 
-	public CuboidSelectionManager(JavaPlugin plugin, Material selectionWand) {
+	public CuboidSelectionManager(JavaPlugin plugin, ItemStack selectionWand) {
 		// TODO Auto-generated constructor stub
 		this.setPlugin(plugin);
 		this.selectionWand = selectionWand;
@@ -36,7 +36,7 @@ public class CuboidSelectionManager implements SelectionManager {
 	@Override
 	public void addPoint(Player player, ItemStack wand, Block block) {
 		// TODO Auto-generated method stub
-		if (wand.getType() == selectionWand) {
+		if (wand == selectionWand) {
 			Selection selection = selections.get(player);
 			if (selection == null) {
 				// create new Selection
