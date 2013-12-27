@@ -15,30 +15,40 @@ import org.bukkit.Location;
 public class CuboidSelection implements Selection {
 
 	private static final int MAXPOINTS = 2;
-	private List<Location> points;
+	private Location[] points;
 
 	public CuboidSelection() {
-		points = new ArrayList<Location>();
+		points = new Location[MAXPOINTS];
 	}
 
 	@Override
 	public List<Location> getPoints() {
 		// TODO Auto-generated method stub
-		return points;
+		List<Location> pointsList = new ArrayList<Location>();
+		pointsList.add(points[0]);
+		pointsList.add(points[1]);
+		return pointsList;
 	}
 
 	@Override
 	public boolean add(Location location) {
 		// TODO Auto-generated method stub
-		points.add(location);
-		if (points.size() > MAXPOINTS)
-			points.remove(0);
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean remove(Location location) {
 		// TODO Auto-generated method stub
-		return points.remove(location);
+		return false;
+	}
+
+	public void set(int index, Location location) {
+		// TODO Auto-generated method stub
+		points[index] = location;
+	}
+
+	public Location get(int index) {
+		// TODO Auto-generated method stub
+		return points[index];
 	}
 }
