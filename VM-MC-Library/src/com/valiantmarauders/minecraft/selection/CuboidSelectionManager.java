@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.valiantmarauders.minecraft.block.BlockChangeDatabase;
-import com.valiantmarauders.minecraft.block.GenericBlockChangeDataBase;
+import com.valiantmarauders.minecraft.block.FlatFileBlockChangeDatabase;
 
 public class CuboidSelectionManager implements SelectionManager {
 
@@ -29,7 +29,7 @@ public class CuboidSelectionManager implements SelectionManager {
 		// TODO Auto-generated constructor stub
 		this.setPlugin(plugin);
 		this.selectionWand = selectionWand;
-		blockDB = new GenericBlockChangeDataBase(plugin, plugin.getName());
+		blockDB = new FlatFileBlockChangeDatabase(plugin);
 		selections = new HashMap<Player, Selection>();
 	}
 
@@ -65,8 +65,8 @@ public class CuboidSelectionManager implements SelectionManager {
 		for (Block b : guides) {
 			guideBlockLocations.add(b.getLocation());
 		}
-		for (Location p : guideBlockLocations) {
-			blockDB.change(p, guideMaterial);
+		for (Location loc : guideBlockLocations) {
+			blockDB.add(loc, guideMaterial);
 		}
 	}
 
@@ -133,5 +133,17 @@ public class CuboidSelectionManager implements SelectionManager {
 
 	public void setPlugin(JavaPlugin plugin) {
 		this.plugin = plugin;
+	}
+
+	@Override
+	public void addPoint(Player player, Material type, Block block) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Location> getSelection(Player player) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
