@@ -45,12 +45,12 @@ public interface SelectionManager {
 	public void addPoint(Player player, Material type, Block block);
 
 	/**
-	 * Gets a list of the points that make up the selection
+	 * Gets the Selection related to a Player
 	 * 
 	 * @param player
 	 *            the player whos selection to get
 	 * 
-	 * @return the points
+	 * @return the selection
 	 */
-	public List<Location> getSelection(Player player);
+	public Selection getSelection(Player player);
 }
