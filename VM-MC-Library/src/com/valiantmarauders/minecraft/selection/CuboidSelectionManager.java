@@ -10,7 +10,6 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.valiantmarauders.minecraft.block.BlockChangeDatabase;
@@ -20,23 +19,23 @@ public class CuboidSelectionManager implements SelectionManager {
 
 	private static final int GUIDEGAP = 3;
 	private Map<Player, Selection> selections;
-	private ItemStack selectionWand;
+	private Material selectionWand;
 	private BlockChangeDatabase blockDB;
 	private Material guideMaterial = Material.WOOL;
 	private JavaPlugin plugin;
 
-	public CuboidSelectionManager(JavaPlugin plugin, ItemStack selectionWand) {
+	public CuboidSelectionManager(JavaPlugin plugin, Material material) {
 		// TODO Auto-generated constructor stub
 		this.setPlugin(plugin);
-		this.selectionWand = selectionWand;
+		this.selectionWand = material;
 		blockDB = new FlatFileBlockChangeDatabase(plugin);
 		selections = new HashMap<Player, Selection>();
 	}
 
 	@Override
-	public void addPoint(Player player, ItemStack wand, Block block) {
+	public void addPoint(Player player, Material material, Block block) {
 		// TODO Auto-generated method stub
-		if (wand == selectionWand) {
+		if (material == selectionWand) {
 			Selection selection = selections.get(player);
 			if (selection == null) {
 				// create new Selection
@@ -128,12 +127,6 @@ public class CuboidSelectionManager implements SelectionManager {
 
 	public void setPlugin(JavaPlugin plugin) {
 		this.plugin = plugin;
-	}
-
-	@Override
-	public void addPoint(Player player, Material type, Block block) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
