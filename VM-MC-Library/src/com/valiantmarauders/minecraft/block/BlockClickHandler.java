@@ -1,8 +1,8 @@
 package com.valiantmarauders.minecraft.block;
 
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public interface BlockClickHandler {
 
@@ -11,10 +11,10 @@ public interface BlockClickHandler {
 	 * 
 	 * @param player
 	 *            the player who clicked the block
-	 * @param material
+	 * @param itemStack
 	 *            what they clicked the block with
 	 * @param block
 	 *            the block they clicked
 	 */
-	void notify(Player player, Material material, Block block);
+	void notify(Player player, ItemStack itemStack, Block block);
 }

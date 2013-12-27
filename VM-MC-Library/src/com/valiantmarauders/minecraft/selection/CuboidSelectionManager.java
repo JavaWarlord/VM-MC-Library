@@ -131,12 +131,6 @@ public class CuboidSelectionManager implements SelectionManager {
 	}
 
 	@Override
-	public void addPoint(Player player, Material type, Block block) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public Selection getSelection(Player player) {
 		// TODO Auto-generated method stub
 		return selections.get(player);
