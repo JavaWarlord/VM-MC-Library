@@ -35,15 +35,6 @@ public class FlatFileBlockChangeDatabase implements BlockChangeDatabase {
 	}
 
 	@Override
-	public void add(Location location, Material type) {
-		// TODO Auto-generated method stub
-		if (!exists(location)) {
-			blocks.put(location, type);
-		}
-		location.getBlock().setType(type);
-	}
-
-	@Override
 	public boolean exists(Location location) {
 		// TODO Auto-generated method stub
 		return blocks.containsKey(location);
@@ -102,6 +93,15 @@ public class FlatFileBlockChangeDatabase implements BlockChangeDatabase {
 			plugin.getLogger().warning(e.toString());
 			return false;
 		}
+	}
+
+	@Override
+	public void add(Location location, Material type) {
+		// TODO Auto-generated method stub
+		if (!exists(location)) {
+			blocks.put(location, location.getBlock().getType());
+		}
+		location.getBlock().setType(type);
 	}
 
 	@Override
