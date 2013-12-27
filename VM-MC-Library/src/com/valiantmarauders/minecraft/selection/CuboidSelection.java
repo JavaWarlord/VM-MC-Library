@@ -15,19 +15,16 @@ import org.bukkit.Location;
 public class CuboidSelection implements Selection {
 
 	private static final int MAXPOINTS = 2;
-	private Location[] points;
+	private List<Location> points;
 
 	public CuboidSelection() {
-		points = new Location[MAXPOINTS];
+		points = new ArrayList<Location>();
 	}
 
 	@Override
 	public List<Location> getPoints() {
 		// TODO Auto-generated method stub
-		List<Location> pointsList = new ArrayList<Location>();
-		pointsList.add(points[0]);
-		pointsList.add(points[1]);
-		return pointsList;
+		return points;
 	}
 
 	@Override
@@ -44,11 +41,17 @@ public class CuboidSelection implements Selection {
 
 	public void set(int index, Location location) {
 		// TODO Auto-generated method stub
-		points[index] = location;
+		if (index < MAXPOINTS)
+			points.set(index, location);
 	}
 
 	public Location get(int index) {
 		// TODO Auto-generated method stub
-		return points[index];
+		return points.get(index);
+	}
+
+	public int getNumberOfPoints() {
+		// TODO Auto-generated method stub
+		return points.size();
 	}
 }
