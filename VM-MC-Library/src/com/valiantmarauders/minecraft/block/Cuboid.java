@@ -19,7 +19,7 @@ import com.valiantmarauders.minecraft.selection.Area;
 public class Cuboid extends Area {
 
 	private static final int MAX_POINTS = 2;
-	private List<Location> points;
+	protected List<Location> points;
 
 	public Cuboid(List<Location> points) {
 		// TODO Auto-generated constructor stub
