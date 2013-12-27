@@ -40,10 +40,11 @@ public class CuboidSelectionManager implements SelectionManager {
 			Selection selection = selections.get(player);
 			if (selection == null) {
 				// create new Selection
-				CuboidSelection newSelection = new CuboidSelection();
-				newSelection.add(block.getLocation());
-				newSelection.add(block.getLocation());
-				selections.put(player, newSelection);
+				selection = new CuboidSelection();
+				selection.add(block.getLocation());
+				selection.add(block.getLocation());
+				selections.put(player, selection);
+				addGuides(selection);
 			} else {
 				// add to existing Selection
 				removeGuides(selection);
