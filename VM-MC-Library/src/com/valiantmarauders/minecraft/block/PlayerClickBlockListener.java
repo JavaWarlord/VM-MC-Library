@@ -1,5 +1,6 @@
 package com.valiantmarauders.minecraft.block;
 
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,9 +28,15 @@ public class PlayerClickBlockListener implements Listener {
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.LOW)
 	public void onPlayerInteract(PlayerInteractEvent event) {
-		if (handler != null) {
-			handler.notify(event.getPlayer(), event.getItem(),
-					event.getClickedBlock());
+		Player player = event.getPlayer();
+		Material material = null;
+		Block block = event.getClickedBlock();
+		// Check to see if the player has something in his hands
+		if (event.getItem() != null) {
+			material = event.getItem().getType();
+			if (handler != null) {
+				handler.notify(player, material, block);
+			}
 		}
 	}
 }
