@@ -41,8 +41,13 @@ public class CuboidSelection implements Selection {
 
 	public void set(int index, Location location) {
 		// TODO Auto-generated method stub
-		if (index < MAXPOINTS)
-			points.set(index, location);
+		if (index < MAXPOINTS) {
+			if (points.size() < MAXPOINTS) {
+				points.add(location);
+			} else {
+				points.set(index, location);
+			}
+		}
 	}
 
 	public Location get(int index) {
